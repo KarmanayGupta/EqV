@@ -735,6 +735,9 @@ section {
   .blog-title {
     font-size: 36px;
   }
+  .arrow {
+    display: none;
+  }
 }
 
 /* ========================== */

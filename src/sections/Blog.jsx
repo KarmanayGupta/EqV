@@ -28,6 +28,8 @@ const slides = [
 ];
 
 const Blog = () => {
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,6 +38,28 @@ const Blog = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+
+    if (distance > 50) {
+      nextSlide(); // swipe left
+    }
+
+    if (distance < -50) {
+      prevSlide(); // swipe right
+    }
+  };
 
   const nextSlide = () => {
     setIndex((index + 1) % slides.length);
@@ -48,7 +72,6 @@ const Blog = () => {
   return (
     <section id="blog">
       <div className="blog-header">
-        <p className="label">ENGINE PIPELINE</p>
         <h2 className="blog-title">
           From COBOL to <span className="gradient">Modern Java</span>
         </h2>
@@ -59,11 +82,16 @@ const Blog = () => {
           ‹
         </button>
 
-        <div className="slide">
+        <div
+          className="slide"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {" "}
           <div className="slide-image">
             <img src={slides[index].image} alt="" />
           </div>
-
           <div className="slide-text">
             <h3>{slides[index].title}</h3>
             <p>{slides[index].text}</p>
