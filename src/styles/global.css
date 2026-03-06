@@ -720,7 +720,11 @@ section {
   .slide {
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+
+    height: auto; /* allow slide to expand */
+    padding: 30px 20px;
+
+    gap: 25px;
   }
 
   .slide-image img {
