@@ -115,6 +115,9 @@ export default function Hero() {
             Deterministic semantic transformation from COBOL to Spring Boot —
             preserving transactional behavior and mission-critical logic.
           </p>
+          <div className="cta">
+            <button className="hero-btn">Experience Us</button>
+          </div>
         </div>
 
         <div className="product-panel">
