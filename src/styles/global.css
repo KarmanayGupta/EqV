@@ -535,6 +535,110 @@ section {
 }
 
 /* ========================== */
+/* ===== BLOG SECTION ======= */
+/* ========================== */
+
+/* BLOG HEADER */
+
+#blog {
+  flex-direction: column;
+  padding-top: 120px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.blog-title {
+  font-size: 54px;
+  font-weight: 800;
+}
+
+/* CAROUSEL */
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 1100px;
+
+  margin: auto;
+  position: relative;
+}
+
+/* SLIDE */
+
+.slide {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+
+  width: 100%;
+  max-width: 1100px;
+
+  height: 420px; /* fixed height */
+
+  background: var(--panel);
+  border: 1px solid var(--border);
+
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/* IMAGE */
+.slide-image {
+  width: 420px;
+  height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image img {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+}
+
+/* TEXT */
+
+.slide-text {
+  max-width: 450px;
+}
+
+.slide-text h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.slide-text p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ARROWS */
+
+.arrow {
+  background: none;
+  border: none;
+
+  font-size: 40px;
+  color: white;
+
+  cursor: pointer;
+  padding: 20px;
+}
+
+.arrow:hover {
+  color: var(--accent);
+}
+
+/* ========================== */
 /* ===== TABLET (1024px) ==== */
 /* ========================== */
 
@@ -573,9 +677,59 @@ section {
     font-size: 38px;
   }
 
+  .product-panel {
+    text-align: left;
+  }
+  .code-display {
+    display: block;
+    text-align: left;
+  }
+  .line-number {
+    display: inline-block;
+  }
+
   /* NAVBAR */
   .nav-links {
     display: none;
+  }
+
+  /* BLOG SLIDES STACK */
+  .blog-slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    margin: 80px 0;
+  }
+
+  .blog-slide.reverse {
+    flex-direction: column;
+  }
+
+  .blog-image img {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .blog-text {
+    text-align: center;
+  }
+
+  .blog-title {
+    font-size: 36px;
+  }
+  .slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .slide-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .blog-title {
+    font-size: 36px;
   }
 }
 
