@@ -22,6 +22,11 @@ body {
   min-height: 100vh;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* background glow */
 body::before {
   content: "";
@@ -49,7 +54,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 60px;
+  padding: 0 clamp(20px, 5vw, 60px);
 }
 
 /* Nav Bar */
@@ -275,7 +280,8 @@ section {
 
 .product-panel {
   flex: 1;
-  height: 420px;
+  height: auto;
+  min-height: 320px;
 
   display: flex;
   flex-direction: column;
@@ -409,18 +415,17 @@ section {
 
 .suite-grid {
   display: grid;
-  grid-template-columns: repeat(4, 260px);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-content: center;
   gap: 28px;
   margin-top: 20px;
+  width: 100%;
 }
 
 /* ===== CARD ===== */
 
 .card {
   position: relative;
-
-  width: 260px;
 
   padding: 28px 24px;
 
@@ -527,4 +532,75 @@ section {
   max-width: 200px;
 
   margin: auto;
+}
+
+/* ========================== */
+/* ===== TABLET (1024px) ==== */
+/* ========================== */
+
+@media (max-width: 1024px) {
+  .hero {
+    gap: 60px;
+  }
+
+  .product-title {
+    font-size: 48px;
+  }
+}
+
+/* ========================== */
+/* ===== MOBILE (768px) ===== */
+/* ========================== */
+
+@media (max-width: 900px) {
+  section {
+    padding: 80px 24px;
+  }
+
+  /* HERO STACK */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  /* PRODUCT TITLE */
+  .product-title {
+    font-size: 38px;
+  }
+
+  /* NAVBAR */
+  .nav-links {
+    display: none;
+  }
+}
+
+/* ========================== */
+/* ===== SMALL MOBILE ======= */
+/* ========================== */
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .hero-btn {
+    padding: 12px 30px;
+  }
+
+  .product-title {
+    font-size: 30px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
 }
