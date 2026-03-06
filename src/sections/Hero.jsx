@@ -116,7 +116,7 @@ export default function Hero() {
             preserving transactional behavior and mission-critical logic.
           </p>
           <div className="cta">
-            <button className="hero-btn">Experience Us</button>
+            <button className="hero-btn">Contact Us</button>
           </div>
         </div>
 
