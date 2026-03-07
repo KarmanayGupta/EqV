@@ -7,7 +7,7 @@ import optimize from "../assets/optimize.jpg.avif";
 const slides = [
   {
     title: "Analysis Engine",
-    text: "Analyzes legacy COBOL code, identifies dependencies and prepares the system for transformation.",
+    text: "Analyzes legacy COBOL code, identifies dependencies and prepares systems for transformation.",
     image: analysis,
   },
   {
@@ -27,83 +27,57 @@ const slides = [
   },
 ];
 
-const Blog = () => {
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
+export default function Blog() {
   const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000); // 4 seconds
 
+  const next = () => setIndex((i) => (i + 1) % slides.length);
+  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+
+  useEffect(() => {
+    const interval = setInterval(next, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-
-    if (distance > 50) {
-      nextSlide(); // swipe left
-    }
-
-    if (distance < -50) {
-      prevSlide(); // swipe right
-    }
-  };
-
-  const nextSlide = () => {
-    setIndex((index + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setIndex((index - 1 + slides.length) % slides.length);
+  const getPosition = (i) => {
+    if (i === index) return "active";
+    if (i === (index - 1 + slides.length) % slides.length) return "left";
+    if (i === (index + 1) % slides.length) return "right";
+    return "hidden";
   };
 
   return (
-    <section id="blog">
-      <div className="blog-header">
-        <h2 className="blog-title">
-          From COBOL to <span className="gradient">Modern Java</span>
+    <section id="blog" className="premium-carousel">
+      <div className="carousel-header">
+        <h2>
+          From Legacy Systems to{" "}
+          <span className="gradient">Modern Architecture</span>
         </h2>
       </div>
 
-      <div className="carousel">
-        <button className="arrow left" onClick={prevSlide}>
-          ‹
-        </button>
+      <div className="carousel-stage-wrapper">
+        <div className="carousel-stage">
+          {slides.map((slide, i) => (
+            <div key={i} className={`carousel-card ${getPosition(i)}`}>
+              <div className="card-inner">
+                <div className="card-image">
+                  <img src={slide.image} alt={slide.title} loading="lazy" />
+                </div>
+                <div className="card-text">
+                  <h3>{slide.title}</h3>
+                  <p>{slide.text}</p>
+                </div>
+              </div>
+            </div>
+          ))}
 
-        <div
-          className="slide"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          {" "}
-          <div className="slide-image">
-            <img src={slides[index].image} alt="" />
-          </div>
-          <div className="slide-text">
-            <h3>{slides[index].title}</h3>
-            <p>{slides[index].text}</p>
-          </div>
+          <button className="carousel-nav left" onClick={prev}>
+            ‹
+          </button>
+          <button className="carousel-nav right" onClick={next}>
+            ›
+          </button>
         </div>
-
-        <button className="arrow right" onClick={nextSlide}>
-          ›
-        </button>
       </div>
     </section>
   );
-};
-
-export default Blog;
+}

@@ -106,13 +106,13 @@ export default function Hero() {
         <div className="hero-text">
           <h1 className="headline">
             Transform Legacy Core Systems
-            <span className="headline-emphasis">into Cloud-Native Java</span>
+            <span className="headline-emphasis">into Cloud-Native Architecture</span>
           </h1>
 
           <div className="divider"></div>
 
           <p className="subtitle">
-            Deterministic semantic transformation from COBOL to Spring Boot —
+            Deterministic semantic transformation from legacy languages to modern technology —
             preserving transactional behavior and mission-critical logic.
           </p>
           <div className="cta">
