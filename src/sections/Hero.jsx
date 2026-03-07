@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-scroll";
 
 export default function Hero() {
   const displayRef = useRef(null);
@@ -106,17 +107,27 @@ export default function Hero() {
         <div className="hero-text">
           <h1 className="headline">
             Transform Legacy Core Systems
-            <span className="headline-emphasis">into Cloud-Native Architecture</span>
+            <span className="headline-emphasis">
+              into Cloud-Native Architecture
+            </span>
           </h1>
 
           <div className="divider"></div>
 
           <p className="subtitle">
-            Deterministic semantic transformation from legacy languages to modern technology —
-            preserving transactional behavior and mission-critical logic.
+            Deterministic semantic transformation from legacy languages to
+            modern technology — preserving transactional behavior and
+            mission-critical logic.
           </p>
           <div className="cta">
-            <button className="hero-btn">Contact Us</button>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="hero-btn"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
 

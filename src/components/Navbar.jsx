@@ -18,9 +18,9 @@ export default function Navbar() {
           Blog
         </Link>
 
-        {/* <Link to="contact" smooth duration={500} className="nav-btn">
+        <Link to="contact" smooth duration={500} className="nav-btn">
           Contact
-        </Link> */}
+        </Link>
       </div>
     </nav>
   );
