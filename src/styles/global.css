@@ -661,8 +661,10 @@ section {
 }
 
 .card-text p {
-  color: var(--muted);
-  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ================= POSITIONS ================= */
@@ -730,6 +732,7 @@ section {
 
   .carousel-card {
     width: 90%;
+    height: 380px;
   }
 
   .carousel-card.left,
@@ -927,6 +930,7 @@ section {
 
   .carousel-card {
     width: 90%;
+    height: 380px;
   }
 
   .carousel-card.left,
@@ -965,6 +969,7 @@ section {
 
   .carousel-card {
     width: 90%;
+    height: 380px;
   }
 
   .card-inner {
