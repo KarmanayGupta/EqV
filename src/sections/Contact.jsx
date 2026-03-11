@@ -1,21 +1,21 @@
 export default function Contact() {
-  const email = "sales@company.com";
+  const email = "hello@equivalic.com";
 
   const subject = encodeURIComponent(
-    "Inquiry: EquiValic COBOL Modernisation Platform"
+    "Inquiry: EquiValic Modernization Platform"
   );
 
   const body = encodeURIComponent(
     `Hello,
 
-I would like to learn more about the EquiValic COBOL modernisation platform.
+I would like to learn more about the EquiValic modernization platform.
 
 Please provide more information about the following engines:
 
 • Analysis
 • Conversion
 • Test
-• Optimise
+• Optimize
 
 Best regards,
 `
@@ -28,13 +28,13 @@ Best regards,
       <div className="contact-wrapper">
         <div className="contact-text">
           <h2 className="headline">
-            Ready to Modernise Your
-            <span className="headline-emphasis">COBOL Systems?</span>
+            Ready to Modernize Your
+            <span className="headline-emphasis">Legacy Systems?</span>
           </h2>
 
           <p className="subtitle">
             Request details about the EquiValic analysis, conversion, testing
-            and optimisation engines.
+            and optimization engines.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ Best regards,
           </a>
 
           <p className="contact-meta">
-            Speak with our engineering team about enterprise COBOL migration.
+            Speak with our engineering team about enterprise system migration.
           </p>
         </div>
       </div>

@@ -14,9 +14,8 @@ export default function Product() {
       const y = (e.clientY - top) / height - 0.5;
 
       cards.forEach((card) => {
-        card.style.transform = `rotateY(${x * 6}deg) rotateX(${
-          -y * 6
-        }deg) translateZ(5px)`;
+        card.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6
+          }deg) translateZ(5px)`;
       });
     };
 
@@ -45,7 +44,7 @@ export default function Product() {
 
         <p className="subtitle">
           An end-to-end deterministic transformation platform that migrates,
-          validates and deploys COBOL systems into enterprise Spring Boot
+          validates and deploys legacy systems into enterprise
           architectures.
         </p>
       </div>
@@ -71,10 +70,10 @@ export default function Product() {
           </div>
 
           <div className="card">
-            <div className="card-label">ACCURACY MODEL</div>
-            <h3>Test Accuracy</h3>
+            <div className="card-label">TESTING AND FIX ENGINE</div>
+            <h3>Test and Fix</h3>
             <p>
-              Transforms legacy COBOL code into modern, production-ready Java
+              Transforms legacy COBOL code into modern, production-ready
               services.
             </p>
           </div>
