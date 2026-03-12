@@ -1,27 +1,57 @@
+import { useState } from "react";
+
 export default function Contact() {
   const email = "hello@equivalic.com";
 
-  const subject = encodeURIComponent(
-    "Inquiry: EquiValic Modernization Platform"
-  );
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
 
-  const body = encodeURIComponent(
-    `Hello,
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-I would like to learn more about the EquiValic modernization platform.
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-Please provide more information about the following engines:
+    const subject = encodeURIComponent(
+      "Inquiry: EquiValic Modernization Platform",
+    );
 
-• Analysis
-• Conversion
-• Test
-• Optimize
+    const body = encodeURIComponent(`Hello EquiValic Team,
 
-Best regards,
-`
-  );
+My name is ${form.firstName} ${form.lastName}.
 
-  const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+I am interested in learning more about the EquiValic modernization platform and how it can support enterprise legacy system transformation.
+
+Message / Query:
+${form.message}
+
+I would appreciate additional information about the following platform engines:
+
+• Analysis Engine  
+• Conversion Engine  
+• Test Engine  
+• Optimization Engine  
+
+Thank you for your time and assistance.
+
+Best regards,  
+${form.firstName} ${form.lastName}
+
+You can reach me at: ${form.email}
+`);
+
+    const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    window.location.href = mailto;
+  };
 
   return (
     <section id="contact" className="contact-section">
@@ -38,15 +68,51 @@ Best regards,
           </p>
         </div>
 
-        <div className="contact-action">
-          <a href={mailto} className="contact-btn">
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            required
+            value={form.firstName}
+            onChange={handleChange}
+          />
+
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            required
+            value={form.lastName}
+            onChange={handleChange}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            value={form.email}
+            onChange={handleChange}
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="4"
+            required
+            value={form.message}
+            onChange={handleChange}
+          />
+
+          <button type="submit" className="contact-btn">
             Request Platform Details
-          </a>
+          </button>
 
           <p className="contact-meta">
             Speak with our engineering team about enterprise system migration.
           </p>
-        </div>
+        </form>
       </div>
     </section>
   );
