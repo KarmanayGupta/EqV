@@ -120,14 +120,21 @@ export default function Hero() {
             mission-critical logic.
           </p>
           <div className="cta">
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
+            <a
+              href={`mailto:hello@equivalic.com?subject=${encodeURIComponent(
+                "Inquiry: EquiValic Modernization Platform",
+              )}&body=${encodeURIComponent(`Hello EquiValic Team,
+
+I would like to learn more about the EquiValic platform and its modernization engines.
+
+Please share additional details.
+
+Thank you.
+`)}`}
               className="hero-btn"
             >
-              Contact Us
-            </Link>
+              Request Information
+            </a>
           </div>
         </div>
 
