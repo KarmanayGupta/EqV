@@ -33,13 +33,6 @@ I am interested in learning more about the EquiValic modernization platform and 
 Message / Query:
 ${form.message}
 
-I would appreciate additional information about the following platform engines:
-
-• Analysis Engine  
-• Conversion Engine  
-• Test Engine  
-• Optimization Engine  
-
 Thank you for your time and assistance.
 
 Best regards,  
