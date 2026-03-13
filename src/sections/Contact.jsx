@@ -69,23 +69,25 @@ You can reach me at: ${form.email}
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            required
-            value={form.firstName}
-            onChange={handleChange}
-          />
+          <div className="form-row">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              required
+              value={form.firstName}
+              onChange={handleChange}
+            />
 
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            required
-            value={form.lastName}
-            onChange={handleChange}
-          />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              required
+              value={form.lastName}
+              onChange={handleChange}
+            />
+          </div>
 
           <input
             type="email"
