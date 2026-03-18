@@ -673,8 +673,11 @@ section {
   position: relative;
   width: 100%;
   height: 480px;
-  perspective: 2000px;
+  perspective: 1200px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ================= CARD ================= */
@@ -701,7 +704,7 @@ section {
   padding: 40px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 40px 120px rgba(0, 0, 0, 0.7),
@@ -711,6 +714,26 @@ section {
 
 .carousel-card.active:hover .card-inner {
   transform: translateY(-6px) scale(1.02);
+}
+
+.carousel-card.active .card-inner {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(0, 150, 255, 0.15);
+}
+
+.carousel-card.left .card-inner,
+.carousel-card.right .card-inner {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+}
+
+.carousel-card.left,
+.carousel-card.right {
+  opacity: 0.35;
+  filter: blur(1px);
 }
 
 /* ================= IMAGE ================= */
@@ -741,19 +764,19 @@ section {
 /* ================= POSITIONS ================= */
 .carousel-card.active {
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.08);
   opacity: 1;
-  z-index: 3;
+  z-index: 5;
 }
 
 .carousel-card.left {
-  transform: translate(calc(-50% - 460px), -50%) scale(0.82) rotateY(18deg);
+  transform: translate(calc(-50% - 360px), -50%) scale(0.85) rotateY(15deg);
   opacity: 0.45;
   z-index: 2;
 }
 
 .carousel-card.right {
-  transform: translate(calc(-50% + 460px), -50%) scale(0.82) rotateY(-18deg);
+  transform: translate(calc(-50% + 360px), -50%) scale(0.85) rotateY(-15deg);
   opacity: 0.45;
   z-index: 2;
 }

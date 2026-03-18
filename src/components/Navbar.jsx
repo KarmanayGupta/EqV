@@ -8,7 +8,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo">
-        <img src={logo} alt="Equivalic Logo" />
+        <Link to="home" smooth duration={500}>
+          <img src={logo} alt="Equivalic Logo" />
+        </Link>
       </div>
 
       {/* NAV LINKS */}
