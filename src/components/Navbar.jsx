@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
+import logo from "../assets/equivalic-logo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="navbar">
-      <div className="logo">EquiValic</div>
+      <div className="logo">
+        <img src={logo} alt="Equivalic Logo" />
+      </div>
 
       {/* NAV LINKS */}
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
