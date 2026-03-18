@@ -2,9 +2,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import Product from "./sections/Product";
 import Blog from "./sections/Blog";
-// import Contact from "./sections/Contact";
-import ScheduleCall from "./components/ScheduleCall";
-import ContactForm from "./components/ContactForm";
+import Contact from "./sections/Contact";
+
 function App() {
   return (
     <>
@@ -12,9 +11,7 @@ function App() {
       <Hero />
       <Product />
       <Blog />
-      {/* <Contact /> */}
-      <ScheduleCall />
-      <ContactForm />
+      <Contact />
     </>
   );
 }
