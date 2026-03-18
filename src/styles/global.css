@@ -1,3 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: #1e293b;
+  --color-primary: #2dd4bf;
+  /* Teal 400 from the screenshot */
+  --color-primary-foreground: #020817;
+  /* Very dark slate, common in shadcn */
+
+  --color-glow-primary: #0ea5e9;
+  /* Softer blue for the component glows */
+  --color-glow-accent: #6366f1;
+  /* Softer indigo/purple */
+
+  --color-background: #020817;
+  --color-foreground: #f8fafc;
+
+  --color-card: #020817;
+  --color-card-foreground: #f8fafc;
+
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+
+  --color-secondary: #0f172a;
+  --color-secondary-foreground: #f8fafc;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -11,11 +38,7 @@
   --success: #00ffd0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 html {
   scroll-behavior: smooth;
@@ -39,8 +62,7 @@ body::before {
   position: fixed;
   inset: 0;
 
-  background:
-    radial-gradient(circle at 20% 30%,
+  background: radial-gradient(circle at 20% 30%,
       rgba(108, 92, 231, 0.15),
       transparent 45%),
     radial-gradient(circle at 80% 70%,
@@ -57,6 +79,8 @@ html,
 body {
   overflow-x: hidden;
 }
+
+
 
 section {
   min-height: 100vh;
@@ -525,14 +549,22 @@ section {
   flex-wrap: wrap;
 }
 
-.suite-count {
-  font-family: 'Syne', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(200, 215, 240, 0.3);
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-  padding-bottom: 8px;
+/* ===== AMBIENT GLOW ===== */
+
+.suite-wrapper::before {
+  content: "";
+  position: absolute;
+
+  inset: -120px -200px;
+
+  background: radial-gradient(circle at 30% 40%,
+      rgba(108, 92, 231, 0.18),
+      transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.15), transparent 55%);
+
+  filter: blur(80px);
+
+  z-index: -1;
 }
 
 .suite-grid {
@@ -554,17 +586,29 @@ section {
   border-radius: 20px;
   padding: 30px 32px 50px;
   overflow: hidden;
-  cursor: default;
-  backdrop-filter: blur(10px);
-  transition: border-color 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  min-height: 380px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  border-color: var(--accent);
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 20px;
+
+  background: radial-gradient(circle at 50% 0%,
+      rgba(108, 92, 231, 0.18),
+      transparent 60%);
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
 }
+
+/* ===== GRADIENT BORDER LAYER ===== */
 
 .card::before {
   content: '';
@@ -961,11 +1005,10 @@ section {
   position: absolute;
   inset: -100px -200px;
 
-  background:
-    radial-gradient(circle at 40% 40%,
-      rgba(108, 92, 231, 0.08),
-      transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.07), transparent 60%);
+  background: radial-gradient(circle at 30% 40%,
+      rgba(108, 92, 231, 0.16),
+      transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.14), transparent 55%);
 
   filter: blur(120px);
   z-index: -1;
