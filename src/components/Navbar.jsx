@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
-import logo from "../assets/equivalic-logo2.png";
+import logo from "../assets/equivalic-logo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
